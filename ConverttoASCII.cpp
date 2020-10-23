@@ -1,4 +1,4 @@
-// Monlab.cpp : Defines the entry point for the console application.
+
 #include "stdafx.h"
 #include <string>
 #include <fstream>
@@ -205,60 +205,4 @@ void makeDataStructures(string infi)
 		}
 	}
 	infile.close();
-	cout << "Test 1" << endl;
 }
-
-/*#include <iostream>
-#ifndef RECTANGLE_H
-#define RECTANGLE_H
-#include "Rectangle.h""
-using namespace std;
-
-class Rectangle
-{
-private:
-	double width;
-	double length;
-public:
-	void setWidth(double);
-	double getWidth() const
-	{
-		return width;
-	}
-	Rectangle();
-	Rectangle(double, double);
-	~Rectangle();
-};
-#endif
-Rectangle::(double w, double l)
-{
-	width = w;
-	length = l;
-}
-Rectangle::~Rectangle()
-{
-	delete[] reds;
-	delete[] greens;
-}
-Rectangle::Rectanle()
-{
-	width = 0;
-	length = 0;
-}
-void Rectangle::setWidth(double w)
-{
-	width = w;
-}
-
-int main()
-{
-	Rectangle my_rectangle;
-	Rectangle my_rectangle2(3.0, 2.0);
-	Rectangle my_rectangle;
-	my_rectangle.getWidth();
-	Rectangle my_rectangle2;
-	my_rectangle2.setWidth(2.0);
-	double a = 3.2;
-	my_rectangle.setWidth(a);
-    return 0;
-}*/
