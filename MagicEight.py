@@ -1,4 +1,5 @@
 #Madeby:Tzu-Han,Hsu
+#read a file that you want as reponses of 8 ball
 with open("8_ball_responses.txt","r") as myFile:
     lines1 = []
     lines2 = []
@@ -8,7 +9,6 @@ with open("8_ball_responses.txt","r") as myFile:
             lines2.append(i.strip("\n"))
 
 import random
-
 
 while True:
     user = input("Ask a question")
