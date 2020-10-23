@@ -3,7 +3,7 @@ import turtle
 import time
 import random
 
-def DrawGUI():   #FINe     
+def DrawGUI():       
     WIDTH  = turtle.window_width()
     HEIGHT = turtle.window_height()
     LABEL_HEIGHT = int(HEIGHT*0.25)
@@ -19,26 +19,16 @@ def DrawGUI():   #FINe
     turtle.pendown()
     turtle.goto(0,-HEIGHT/2)
     turtle.penup()
-
-    #turtle.pencolor('deep pink')
-    #turtle.goto(0,TIES_HEIGHT)
-    #turtle.write("TIES:", align="center", font=("Arial", 25, "bold"))
     
     #computer
     turtle.pencolor("red")
     turtle.goto(COMP_X,LABEL_HEIGHT)
     turtle.write("Computer", align="center", font=("Arial", 30, "bold underline"))
 
-    #turtle.goto(COMP_X,SCORE_HEIGHT)
-    #turtle.write("Score:", align="center", font=("Arial", 25, "bold"))
-
     #player
     turtle.pencolor("blue")
     turtle.goto(PLAYER_X,LABEL_HEIGHT)
     turtle.write("Player", align="center", font=("Arial", 30, "bold underline"))
-
-    #turtle.goto(PLAYER_X,SCORE_HEIGHT)
-    #turtle.write("Score:", align="center", font=("Arial", 25, "bold"))
 
     turtle.penup()
 def DrawScores(playerwins,computerwins,ties):    #FINe   
