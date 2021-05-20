@@ -1,0 +1,129 @@
+/*
+ *  This is a program that checks family members' relationship(couple, father, siblings...)
+ *   Example queries:
+ *          male(Who).
+ *        This will show all the males in the family.
+ *          female(Who).
+ *        This will show all the females in the family.
+ *           father(Who1, Who2)
+ *        This will show a list of Who1 and Who2 (Who1 is the father of Who2)
+ *           mather(Who1, Who2)
+ *        This will show a list of Who1 and Who2 (Who1 is the mather of Who2)
+ *            couples(Who1, Who2)
+ *        This will show a list of Who1 and Who2 (Who1 and Who2 are couples)
+ *           sibling(kevin, janice)
+ *        This will show if kevin and janice are siblings.
+ * 			  sister(joyce, janice)
+ *        This will show if joyce and janice are sisters.
+ *            grandson(chris, patrick)
+ *        This will show if chris is patrick's grandson.
+ * 
+ *   This is the family tree:
+ *    Patrick -- Eva   Tim -- Windy  Eric -- Flora   Philip -- Rachale
+               |            |              |                 |
+	     Peter  --   Samatha        George      --     Ashely
+       	             |                               |
+                   Chris            --             Alice    
+                                    |
+                           Kevin   Janice   Jocye
+ */
+
+male(patrick).
+male(tim).
+male(eric).
+male(philip).
+male(peter).
+male(george).
+male(chris).
+male(kevin).
+female(eva).
+female(windy).
+female(flora).
+female(rachale).
+female(samatha).
+female(ashely).
+female(alice).
+female(janice).
+female(joyce).
+father(patrick,peter).
+father(tim,samatha).
+father(eric,george).
+father(philip,ashely).
+father(peter,chris).
+father(george,alice).
+father(chris,kevin).
+father(chris,janice).
+father(chris,joyce).
+mother(windy,samatha).
+mother(samatha,chris).
+mother(rachale,ashely).
+mother(eva,peter).
+mother(flora,george).
+mother(ashely,alice).
+mother(alice,kevin).
+mother(alice,janice).
+mother(alice,joyce).
+couples(patrick,eva).
+couples(tim,windy).
+couples(eric,flora).
+couples(philip,rachale).
+couples(peter,samatha).
+couples(george,ashely).
+couples(chris,alice).
+
+sibling(A,B):-
+    father(X,A),
+    father(X,B),
+    mother(Y,A),
+    mother(Y,B).
+
+sister(A,B):-
+    father(X,A),
+    father(X,B),
+    mother(Y,A),
+    mother(Y,B),
+    female(A),
+    female(B).
+
+grandson(A,B):-
+    father(B,X),
+    father(X,A),
+    male(A).
+
+grandson(A,B):-
+    mother(B,X),
+    mother(X,A),
+    male(A).
+
+grandson(A,B):-
+    mother(B,X),
+    father(X,A),
+    male(A).
+
+grandson(A,B):-
+    father(B,X),
+    mother(X,A),
+    male(A).
+
+descendant(A,B):-
+    father(B,A).
+
+descendant(A,B):-
+    mother(B,A).
+
+descendant(A,B):-
+    father(X,A),
+    descendant(X,B).
+	
+descendant(A,B):-
+    mother(X,A),
+    descendant(X,B).
+
+/*
+ Test case:
+ 1. grandson(chris,patrick).          true
+ 2. descendant(janice, patrick).   true
+ 3. sister(joyce, janice).                  true
+ 4. sibling(joyce, kevin).                true
+ 5. descendant(alice, windy).       false
+ * /
